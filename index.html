@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsive offcanvas navbar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap-css\bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap-js\bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/aa64bf530b.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Beau+Rivage&family=Merriweather:ital,wght@1,300&family=Patrick+Hand&family=Playfair+Display&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+        <style>
+           body{
+            background: linear-gradient(to bottom, #2b5876, #4e4376);
+           }
+           .navbar-expand-sm {
+               /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364);*/
+                background: linear-gradient(to right, #000000, #434343);
+                font-family: 'Akshar', sans-serif;
+                font-family: 'Beau Rivage', cursive;
+                font-family: 'Caveat', cursive;
+                font-family: 'Macondo', cursive;
+                font-family: 'Merriweather', serif;
+                font-family: 'Open Sans', sans-serif;
+                font-family: 'Patrick Hand', cursive;
+                font-family: 'Playfair Display', serif;
+                font-family: 'PT Sans', sans-serif;
+                font-family: 'Rajdhani', sans-serif;
+                font-family: 'Raleway', sans-serif;
+                font-family: 'Roboto Mono', monospace;
+                font-family: 'Source Code Pro', monospace;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+            .nav-link{
+                color: white;
+                font-size: 18px;
+                font-weight:bold;
+            }
+            .off{
+        	    display:block;
+                color:black;
+                text-decoration:none;
+                font-size: 22px;
+            }
+            .btn{
+                font-size: 18px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            /*Login*/
+            .login-box{
+                width: 280px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                color: white;   
+            }
+            .login-box h1{
+                float: left;
+                font-size: 40px;
+                border-bottom: 6px solid #4caf50;
+                margin-bottom: 50px;
+                padding: 13px 0;
+            }
+            .textbox{
+                width: 100%;
+                overflow: hidden;
+                font-size: 20px;
+                padding: 8px 0;
+                margin: 8px 0;
+                border-bottom: 1px solid #4caf50 ;
+            }
+            .textbox i{
+                width: 26px;
+                float: left;
+                text-align: center;
+            }
+            .textbox input{
+                border: none;
+                outline: none;
+                background: none;
+                color: white;
+                font-size: 18px;
+                width: 80%;
+                float: left;
+                margin: 0 10px;
+            }
+            .button{
+                width: 100%;
+                background: none;
+                border: 2px solid #4caf50;
+                color: white;
+                padding: 5px;
+                font-size: 23px;
+                cursor: pointer;
+                margin: 12px 0;
+            } 
+
+            /* top brands*/
+            .brands h3{
+              margin-top: 50px;
+              font-size: 50px;
+              font-weight: bold;
+              margin-left: 42%;
+              color: white;
+            }
+            .card{
+              display: inline-block;
+            }
+            .card:hover{
+              box-shadow: 0 4px 8px 0 rgba(108, 241, 55, 0.801), 0 6px 20px 0 rgba(154, 215, 41, 0.758);
+            }
+
+            /*footer*/
+            .footer{
+              margin-top: 200px;
+              background:url('https://images.unsplash.com/photo-1519376108558-7b6471e87264?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyayUyMHJvYWR8ZW58MHx8MHx8&w=1000&q=80');
+              background-repeat: no-repeat;
+              background-size: cover;
+              height:800px;
+              opacity: 0.8;
+            }
+        
+            .vertical{
+              border-left: 1px solid white;
+              height: 560px;
+              margin-left: 370px;
+              margin-top: -550px;
+              
+            }
+            .branch{
+              margin-left: 420px;
+              margin-top: -600px;
+            }
+            .list-group-item{
+              border:none;
+              background-color: transparent;
+              margin-left: 20px;
+              color: white;
+            }
+            .vertical1{
+              border-left: 1px solid white;
+              height: 560px;
+              margin-left: 600px;
+              margin-top: -260px;
+            }
+            .offers{
+              margin-left: 780px;
+              margin-top: -505px;
+            }
+            .follow{
+              margin-left: 1100px;
+              margin-top: -202px;
+              left: 0;
+              bottom: 0;
+              color: white;
+              text-align: center;
+            }
+  
+           .fa {
+            padding: 5px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 6px 3px;
+           }
+
+          .fa-facebook {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+
+          .fa-twitter {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+
+          .fa-google {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+
+          .fa-linkedin {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+
+          .fa-youtube {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+
+          .fa-instagram {
+            background: transparent;
+            color: grey;
+            border: 2px solid grey;
+            border-radius: 5px;
+          }
+        
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="cars fun.png" alt="Logo" style="width:40px;" class="rounded-pill">
+                    <span class="navbar-text" style ="color:#4caf50; font-size: 18px;font-weight:bold;">CARS FUN</span>
+                  </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse justify-content-center " id="collapsibleNavbar">   
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-bs-toggle="collapse">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="collapse">SERVICES</a>
+                    </li>   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutus" data-bs-toggle="collapse">ABOUT US</a>
+                    </li>  
+                   <!-- <li class="nav-item">
+                        <a class="nav-link" href="#login" data-bs-toggle="collapse">LOGIN</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#login">
+                        LOGIN
+                        </button>
+                    </li>
+
+                    <li class="nav-item">
+                        <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#signup">
+                        SIGN UP
+                        </button>
+                    </li> 
+                </ul>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" id="login" style="background: linear-gradient(to left, #141e30, #243b55);">
+            <div class="offcanvas-header">
+              <h1 class="offcanvas-title"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container" style="margin-top: 150px">
+                    <form action="/action_page.php">
+                      <!--<div class="form-floating mb-3 mt-3">
+                        
+                        <i class="fa-solid fa-user"></i><input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="form-floating mt-3 mb-3">
+                        <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                        <label for="pwd">Password</label>
+                      </div>-->
+                      <div class="login-box">
+                        <h1>login</h1>
+                        <div class="textbox">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" placeholder="username" name="" value="">
+                        </div>
+                        <div class="textbox">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input type="password" placeholder="password" name="" value="">
+                        </div>
+                      <button type="submit" class="btn button">Login</button>
+                      <p>Don't have account?<a href="#signup">sign up</a></p>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" id="signup" style="background: linear-gradient(to left, #141e30, #243b55);">
+            <div class="offcanvas-header">
+              <h1 class="offcanvas-title"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container" style="margin-top: 150px">
+                    <form action="/action_page.php">
+                      <!--<div class="form-floating mb-3 mt-3">
+                        
+                        <i class="fa-solid fa-user"></i><input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="form-floating mt-3 mb-3">
+                        <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                        <label for="pwd">Password</label>
+                      </div>-->
+                      <div class="login-box">
+                        <h1>Signup</h1>
+                        <div class="textbox">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" placeholder="username" name="" value="">
+                        </div>
+                        <div class="textbox">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input type="password" placeholder="password" name="" value="">
+                        </div>
+                      <button type="Signup" class="btn button">Signup</button>
+                      <p>Already have Account?<a href="#login">login</a></p>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+            
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://wallpapercave.com/wp/wp1697966.jpg" alt="Jaguar" class="d-block" style="width:100%;">
+                <div class="carousel-caption">
+                  <h3>Jaguar</h3>
+                  <!--<p>We had such a great time in LA!</p>-->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://wallpapercave.com/wp/wp5760505.jpg" alt="BMW-3-Series" class="d-block" style="width:100%;">
+                <div class="carousel-caption">
+                  <h3>BMW</h3>
+                   <!--<p>Thank you, Chicago!</p>-->
+                </div> 
+              </div>
+              <div class="carousel-item">
+                <img src="https://wallpaperaccess.com/full/1485916.jpg" alt="Range Rover" class="d-block" style="width:100%;">
+                <div class="carousel-caption">
+                  <h3>Range Rover</h3>
+                  <!--<p>We love the Big Apple!</p>-->
+                </div>  
+              </div>
+            </div>
+            
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+
+          <div class="brands">
+            <h3>TOP BRANDS</h3>
+            <div class="container mt-3" style="margin-right: 50px;">
+              <div class="card-deck">
+              <div class="card mt-4" style="width:300px">
+                <img class="card-img-top" src="https://wallpapercave.com/wp/wp1697966.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                <h4 class="card-title">JAGUAR</h4>
+                <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+              </div>
+          </div>
+        
+            <div class="card mt-4" style="width:300px">
+              <img class="card-img-top" src="https://wallpapercave.com/wp/wp5760505.jpg" alt="Card image" style="width:100%">
+              <div class="card-body">
+              <h4 class="card-title">B M W</h4>
+              <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+      
+          <div class="card mt-4" style="width:300px">
+            <img class="card-img-top" src="https://wallpaperaccess.com/full/1485916.jpg" alt="Card image" style="width:100%">
+            <div class="card-body">
+            <h4 class="card-title">RANGE ROVER</h4>
+            <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+        </div>
+
+        <div class="card mt-4" style="width:300px;">
+          <img class="card-img-top" src="https://wallpaperaccess.com/full/201258.jpg" alt="Card image" style="width:100%">
+          <div class="card-body">
+          <h4 class="card-title">AUDI</h4>
+          <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+          </div>
+      </div>
+      
+      <div class="card mt-4" style="width:300px">
+        <img class="card-img-top" src="https://wallpaperaccess.com/full/27982.jpg" alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">LAMBORGHINI</h4>
+        <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>
+
+      <div class="card mt-4" style="width:300px">
+        <img class="card-img-top" src="https://wallpaperaccess.com/full/657740.jpg" alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">BUGGATI</h4>
+        <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>      
+
+      <div class="card mt-4" style="width:300px">
+        <img class="card-img-top" src="https://mypcwalls.com/wp-content/uploads/2021/08/Porsche-Wallpaper-1536x864.jpg" alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">PORSCHE</h4>
+        <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>   
+      
+      <div class="card mt-4" style="width:300px">
+        <img class="card-img-top" src="https://wallpaperaccess.com/full/1489250.jpg" alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">MERCEDES</h4>
+        <p class="card-text">Check Out Your Dream Car that Suits You...</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+      </div>   
+      </div>
+      </div>
+
+      <div class="footer">
+        <div class="container mt-5">
+          <h3 style="font-size:50px;margin-left:40px;padding-top: 50px; ">GET IN TOUCH...</h3>
+          <div class="contact" style="color: white; margin-left: 40px; width:350px;margin-bottom: 100px;">
+            <br><br>
+            <p style="word-wrap:break-word;">Cars fun has varieties of top brands cars with an exclusive offers. Just visit our Gallery or book online and get your dream car home.</p>
+            <br>
+            <i class="fa-solid fa-location-dot" style="color: red;"></i>
+            <a herf="#">312 Gardiners Ave, Levittown NY 11756</a><br><br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.0280556087646!2d-73.51873828465845!3d40.717398879331334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c27e3275090037%3A0xe54af2fcb7e1535c!2s312%20Gardiners%20Ave%2C%20Levittown%2C%20NY%2011756%2C%20USA!5e0!3m2!1sen!2sin!4v1652537829520!5m2!1sen!2sin" width="350" height="250" style="border:0;" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br><br>
+            <i class="fa-solid fa-phone-volume" style="color: red;"></i>   
+            <a href="tel:+1-653-248-1973" style="color:white;text-decoration:none;">+1-653-248-1973</a><br><br>
+            <i class="fa-solid fa-envelope" style="color: red;"></i>
+            <a href="carsfun@mail.us" style="color:white;text-decoration:none;">carsfun@mail.us</a>
+            <div class="vertical"></div>
+           
+          </div>
+          
+          <div class="branch">
+            <h4 style="color:white; margin-left:38px; font-size: 30px;">Branch</h4>
+          <ul class="list-group list-group-vertical">
+            <li class="list-group-item">New Jersey</li>
+            <li class="list-group-item">New York</li>
+            <li class="list-group-item">Washington DC</li>
+            <li class="list-group-item">California</li>
+          </ul>
+          <div class="vertical1"></div>
+          </div>
+
+          <div class="offers">
+            <h4 style="color:white; margin-left:38px; font-size: 30px;">Offers</h4>
+            <ul class="list-group list-group-vertical">
+              <li class="list-group-item">Summer Holidays Offers</li>
+              <li class="list-group-item">Festive Offers</li>
+              <li class="list-group-item">Exchange Offers</li>
+              <li class="list-group-item">Credit/Debit Card Offers</li>
+            </ul>
+          </div>
+
+          <div class="follow">
+            <h4 style="font-size: 30px;">Follow Us</h4>
+              <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+              <a href="https://twitter.com" class="fa fa-twitter"></a>
+              <a href="https://www.anytimefitness.co.in" class="fa fa-google"></a>
+              <a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+              <a href="https://www.youtube.com" class="fa fa-youtube"></a>
+              <a href="https://www.instagram.com" class="fa fa-instagram"></a><br><br>	
+              
+              </div>
+              
+              <div class="end">
+              <p style="margin-top:390px;text-align: center ;color: white;">Copyright &copy;2021 All rights reserved by Cars fun.</p>
+              <!--<p style="float:right;margin-top:-38px;"> Privacy Policy | Disclaimer | Refund Policy</p>-->
+              <a href="#" style="float:left;margin-top:-38px;margin-left: 900px;color:white;text-decoration:none;">Privacy Policy |</a>
+              <a href="#" style="float:left;margin-top:-38px;margin-left: 1010px;color:white;text-decoration:none;">Disclaimer |</a>
+              <a href="#" style="float:left;margin-top:-38px;margin-left: 1100px;color:white;text-decoration:none;">Refund Policy</a>
+              </div>
+            
+            
+        </div>
+      </div>
